@@ -3,14 +3,23 @@ import {Route, Link, Switch} from 'react-router-dom'
 import Home from "./Home"
 import Form from "./Form"
 import Confirmation from "./Confirmation"
+import styled from 'styled-components'
 
+const StyledDiv = styled.div`
+
+display:flex;
+justify-content:center;
+
+
+
+`
 
 
 
 const App = () => {
   const [allUsers,setAllUsers] = useState([])
   return (
-    <div> 
+    <StyledDiv> 
 
 <h1>Lambda Eats</h1>
      <nav>
@@ -30,7 +39,7 @@ const App = () => {
             <Confirmation />
         </Route>
     </Switch>
-      </div>
+      </StyledDiv>
   );
 };
 export default App;

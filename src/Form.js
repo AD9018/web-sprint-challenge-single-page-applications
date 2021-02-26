@@ -2,6 +2,20 @@ import React,{useState} from "react"
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import FormSchema from "./FormSchema"
+import styled from 'styled-components'
+
+const StyledImg = styled.img`
+
+width:50%;
+
+
+
+`
+
+
+
+
+
 
 const initialState = {
 
@@ -88,7 +102,7 @@ console.log(errors)
  return(
      <form>
          <title>Build Your Own Pizza</title>
-         <img src="https://tinyurl.com/yae2wro7" alt="Delicious Pizza" />
+         <StyledImg  src="https://tinyurl.com/yae2wro7" alt="Delicious Pizza" />
     
          <h1>Build Your Own Pizza</h1>
       <label>Choice of Size
@@ -291,7 +305,9 @@ console.log(errors)
      value={formValues.orderMultiply}
      onChange={changeHandler}
      />
-     <Link to='/confirmation'><button onClick={validity}>Add to Order $17.99</button></Link>
+     <Link to='/confirmation'>
+         <button onClick={validity}>Add to Order $17.99</button>
+         </Link>
      </div>
      </form>
  )
