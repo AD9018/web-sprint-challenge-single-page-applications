@@ -3,20 +3,16 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import FormSchema from "./FormSchema"
 import styled from 'styled-components'
+import { getByPlaceholderText } from "@testing-library/react"
 
 const StyledImg = styled.img`
 
 width:50%;
-
+align-items:center;
+justify-content:center;
 
 
 `
-
-
-
-
-
-
 const initialState = {
 
 size: "",
@@ -59,7 +55,7 @@ FormSchema
   setErrors(initialErrors);
 
   axios
-  .post("https://reqres.in/", userObj)
+  .post("https://reqres.in/api/users?page=2", userObj)
   .then((res) => {
      props.setAllUsers([...props.allUsers, res.data]);
 
@@ -100,12 +96,14 @@ const changeHandler = e => {
    } 
 console.log(errors)
  return(
-     <form>
+     <form onSubmit={validity} >
          <title>Build Your Own Pizza</title>
          <StyledImg  src="https://tinyurl.com/yae2wro7" alt="Delicious Pizza" />
     
          <h1>Build Your Own Pizza</h1>
       <label>Choice of Size
+         
+
           <label>Required
        <select>
            <option 
@@ -130,8 +128,10 @@ console.log(errors)
       <div>
 
         <label>Choice of Sauce
-            <label>Original Red
+            <br></br>
                 <label>Required
+                    <br></br>
+            <label>Original Red
             <input
             name="sauce"
             type="radio"
@@ -171,7 +171,9 @@ console.log(errors)
       </label>
     </div>
     <label>Add Toppings
-        <label>Choose up to 10  
+        <br></br>
+        <label>Choose up to 10
+            <br></br>  
        <label> Pepperoni
      <input 
      name='pepperoni'
@@ -229,6 +231,7 @@ console.log(errors)
       onChange={changeHandler}
      />
        </label>
+     <div>
        <label>Diced Tomatos
      <input 
      name='dicedTomatos'
@@ -285,13 +288,14 @@ console.log(errors)
       onChange={changeHandler}
      />
        </label>
+     </div>
     </label>
      </label>
      <label>Special Instructions 
          <input 
          name='specialInstructions'
          type='text'
-         placeholder="Anything else you'd like to add?"
+         placeholder="Anything else you'd like?"
          value={formValues.specialInstructions}
          onChange={changeHandler}
          />
@@ -300,13 +304,12 @@ console.log(errors)
      <input 
      name='orderMulitply'
      type='number'
-     min='1'
-     max='5'
+     placeholder='1'
      value={formValues.orderMultiply}
      onChange={changeHandler}
      />
      <Link to='/confirmation'>
-         <button onClick={validity}>Add to Order $17.99</button>
+         <button>Add to Order $17.99</button>
          </Link>
      </div>
      </form>

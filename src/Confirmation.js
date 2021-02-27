@@ -15,7 +15,4 @@ export default function Confirmation(){
 
    )
 
-
-
-
 }

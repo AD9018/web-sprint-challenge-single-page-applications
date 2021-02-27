@@ -21,7 +21,7 @@ const App = () => {
   return (
     <StyledDiv> 
 
-<h1>Lambda Eats</h1>
+         <h1>Lambda Eats</h1>
      <nav>
        <Link to="/"><button>Home</button></Link>
        <button>Help</button>
